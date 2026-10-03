@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Study Planner</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <button class="menu-btn">☰</button>
+
+    <div class="sidebar" id="sidebar">
+
+        <h2 class="sidebar-title">Smart Study Planner</h2>
+
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/planner">Planner</a></li>
+            <li><a href="/focus">Focus Mode</a></li>
+            <li><a href="/tasks">Task Manager</a></li>
+            <li><a href="/progress">Progress</a></li>
+            <li><a href="/login">Login/Profile</a></li>
+        </ul>
+
+    </div>
+
+    {% block content %}
+    {% endblock %}
+    
+    <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+    {% block scripts %}
+    
+    {% endblock %}
+<div id="chat-widget">
+
+    <div id="chat-header">
+
+        AI Assistant
+
+    </div>
+
+    <div id="chat-messages">
+
+    </div>
+
+    <div id="chat-input-container">
+
+        <input
+            type="text"
+            id="chat-input"
+            placeholder="Ask me anything..."
+        >
+
+        <button id="chat-send">
+
+            Send
+
+        </button>
+
+    </div>
+
+</div>
+
+<button id="chat-toggle">
+
+    💬
+
+</button>
+
+<script src="{{ url_for('static', filename='chatbot.js') }}"></script>
+</body>
+</html>

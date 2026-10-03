@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="main-content">
+
+    <h1>Hello, Student!</h1>
+
+    <p>Stay focused, keep learning!</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Study Time</h3>
+            <p id="study-time-card">
+                0 hrs
+            </p>
+        </div>
+
+        <a href="/tasks" class="card-link">
+            <div class="card">
+                <h3>Tasks Done</h3>
+                <p>{{ completed_tasks }} / {{ total_tasks }}</p>
+            </div>
+        </a>
+
+        <div class="card">
+            <h3>Streak</h3>
+            <p>5 Days</p>
+        </div>
+        <div class="card">
+
+            <h3>Productivity</h3>
+
+            <p>{{ productivity }}%</p>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard-sections">
+
+        <div class="today-schedule">
+
+            <h2>Today's Schedule</h2>
+
+            <div id="today-schedule">
+
+                <p>No schedule generated yet.</p>
+
+            </div>
+
+        </div>
+        <a href="/tasks" class="section-link">
+            <div class="tasks-box">
+                <h2>Upcoming Tasks</h2>
+        
+                {% for task in upcoming_tasks %}
+
+                    <p>
+
+                    {{ task[1] }}
+                    -
+                    {{ task[3] }}
+
+                    </p>
+
+            {% endfor %}
+            </div>
+        </a>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+
+{% endblock %}

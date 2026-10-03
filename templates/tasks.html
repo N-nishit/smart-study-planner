@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="main-content">
+
+    <h1>Task Manager</h1>
+
+    <form action="/add-task" method="POST">
+
+        <input type="text"
+            name="task"
+            placeholder="Enter a task"
+            required>
+
+        <select name="category">
+
+            <option value="Assignment">Assignment</option>
+            <option value="Exam">Exam</option>
+            <option value="Personal">Personal</option>
+
+        </select>
+
+        <input type="date" name="deadline">
+
+        <button type="submit">Add Task</button>
+
+    </form>
+    <div class="task-list">
+
+        {% for task in tasks %}
+
+        <div class="task-card {% if task[4] == 1 %}completed-task{% endif %}">
+
+            <div>
+
+                <h3>{{ task[1] }}</h3>
+
+                <p>Category: {{ task[2] }}</p>
+
+                <p>Deadline: {{ task[3] }}</p>
+
+            </div>
+            <div class="task-actions">
+                <a href="/complete-task/{{ task[0] }}"
+                    class="complete-btn">
+
+                    Complete
+
+                </a>
+
+                <a href="/delete-task/{{ task[0] }}"
+                    class="delete-btn">
+
+                    Delete
+
+                </a>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

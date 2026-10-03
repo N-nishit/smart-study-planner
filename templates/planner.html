@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="main-content">
+
+    <h1>Study Planner</h1>
+
+    <div class="planner-container">
+
+        <div class="planner-form">
+
+            <h2>Planner Settings</h2>
+
+            <input type="number"
+                   placeholder="Daily Study Goal (hours)"
+                   id="study-hours">
+
+            <label>Study Start Time</label>
+            <input type="time" id="start-time">
+
+            <label>Study End Time</label>
+            <input type="time" id="end-time">
+
+            <input type="number"
+                   placeholder="Break Duration (mins)"
+                   id="break-time">
+
+            <hr>
+
+            <h2>Add Subject</h2>
+
+            <input type="text"
+                   placeholder="Subject Name"
+                   id="subject-name">
+
+            <select id="priority">
+
+                <option value="3">High Priority</option>
+                <option value="2">Medium Priority</option>
+                <option value="1">Low Priority</option>
+
+            </select>
+
+            <button id="add-subject-btn">
+                Add Subject
+            </button>
+
+            <div id="subject-list">
+
+            </div>
+
+            <button id="generate-btn">
+                Generate Timetable
+            </button>
+            
+            <button id="clear-btn">
+                Clear Subjects
+            </button>
+
+        </div>
+        <div class="planner-progress">
+
+            <h3>Today's Progress</h3>
+
+            <p>
+                Study Time:
+                <span id="planner-study-time">
+                    0h 0m
+                </span>
+            </p>
+
+            <p>
+                Completed Sessions:
+                <span id="completed-sessions">
+                    0
+                </span>
+            </p>
+                <button id="reset-progress-btn">
+                    Reset Progress
+                </button>
+
+        </div>
+        <div class="planner-output">
+
+            <h2>Generated Schedule</h2>
+
+            <div id="schedule-output">
+
+                <p>No schedule generated yet.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='planner.js') }}"></script>
+
+{% endblock %}

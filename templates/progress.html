@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="main-content">
+<h1>Progress Tracker</h1>
+
+<div class="stats-container">
+
+    <div class="stats-container">
+
+    <div class="stat-card">
+
+        <h2>Total Study Time</h2>
+
+        <p id="progress-study-time">
+            0h 0m
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>Completed Sessions</h2>
+
+        <p id="progress-completed-sessions">
+            0
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>Productivity</h2>
+
+        <p id="progress-productivity">
+            0%
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="progress-layout">
+
+    <div class="progress-card large-card">
+
+        <div class="card-header">
+
+            <h2>Study Time This Week</h2>
+
+            <select id="time-filter">
+
+                <option>This Week</option>
+
+            </select>
+
+        </div>
+
+        <canvas id="weeklyStudyChart"></canvas>
+
+    </div>
+
+    <div class="bottom-section">
+
+        <div class="progress-card">
+
+            <h2>Subject Wise Progress</h2>
+
+            <canvas id="subjectChart"></canvas>
+
+        </div>
+
+        <div class="progress-card">
+
+            <h2>Top Subjects</h2>
+
+            <ol id="top-subjects-list">
+
+                <li>
+                    No study data yet
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='progress.js') }}"></script>
+
+{% endblock %}
